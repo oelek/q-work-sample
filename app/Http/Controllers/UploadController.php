@@ -33,7 +33,6 @@ class UploadController extends Controller
             $this->validate($request, [
                 'text_file' => 'required|file',
             ]);
-
         } catch (ValidationException $validationException) {
             return response()
                 ->json(['errors' => $validationException->errors()]);
@@ -55,5 +54,4 @@ class UploadController extends Controller
             ],
         ]);
     }
-
 }

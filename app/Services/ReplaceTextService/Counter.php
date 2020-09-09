@@ -37,7 +37,7 @@ class Counter
 
     public function increase(string $name, int $count): void
     {
-        if ( ! isset($this->counted[$name])) {
+        if (! isset($this->counted[$name])) {
             $this->counted[$name] = 0;
         }
 
@@ -47,7 +47,5 @@ class Counter
             $this->max     = $this->counted[$name];
             $this->maxName = $name;
         }
-
     }
-
 }

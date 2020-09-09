@@ -61,7 +61,7 @@ class ReplaceTextService
         $words = Word::explode($str);
 
         foreach ($words as $word) {
-            if ( ! empty($word)) {
+            if (! empty($word)) {
                 $count = Word::count($word, $str);
                 $this->counter->increase($word, $count);
             }
