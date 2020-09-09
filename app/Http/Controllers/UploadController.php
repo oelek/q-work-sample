@@ -34,13 +34,15 @@ class UploadController extends Controller
                 'text_file' => 'required|file',
             ]);
         } catch (ValidationException $validationException) {
-            return response()
-                ->json(['errors' => $validationException->errors()]);
+            return response()->json([
+                'errors' => $validationException->errors()
+            ]);
         }
 
         $file   = $request->file('text_file');
+
         $result = $this->replaceTextService
-            ->processFile($file->openFile())
+            ->processTextFile($file->openFile())
             ->getProcessedText();
 
         return response()->json([

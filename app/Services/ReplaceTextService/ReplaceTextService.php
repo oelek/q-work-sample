@@ -22,7 +22,7 @@ class ReplaceTextService
         $this->counter = $counter;
     }
 
-    public function processFile(SplFileObject $file): ReplaceTextService
+    public function processTextFile(SplFileObject $file): ReplaceTextService
     {
         foreach ($file as $line) {
             $this->countWords($line);
