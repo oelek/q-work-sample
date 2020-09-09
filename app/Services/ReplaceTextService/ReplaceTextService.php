@@ -22,7 +22,7 @@ class ReplaceTextService
         $this->counter = $counter;
     }
 
-    public function processFile(SplFileObject $file)
+    public function processFile(SplFileObject $file): ReplaceTextService
     {
         foreach ($file as $line) {
             $this->countWords($line);
@@ -41,22 +41,22 @@ class ReplaceTextService
         return $this;
     }
 
-    public function getProcessedText()
+    public function getProcessedText(): string
     {
         return $this->output;
     }
 
-    public function getWord()
+    public function getWord(): string
     {
         return $this->counter->getMaxCountName();
     }
 
-    public function getWordCount()
+    public function getWordCount(): int
     {
         return $this->counter->getMaxCount();
     }
 
-    private function countWords($str)
+    private function countWords($str): void
     {
         $words = Word::explode($str);
 

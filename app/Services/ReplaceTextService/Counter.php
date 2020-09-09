@@ -16,21 +16,21 @@ class Counter
     private $max = 0;
 
     /**
-     * @var
+     * @var string
      */
     private $maxName;
 
-    public function getCounted()
+    public function getCounted(): array
     {
         return $this->counted;
     }
 
-    public function getMaxCount()
+    public function getMaxCount(): int
     {
         return $this->max;
     }
 
-    public function getMaxCountName()
+    public function getMaxCountName(): string
     {
         return $this->maxName;
     }
