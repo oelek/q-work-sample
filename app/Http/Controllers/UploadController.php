@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\ReplaceTextService\ReplaceTextService;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class UploadController extends Controller
 {
@@ -28,6 +29,16 @@ class UploadController extends Controller
     public function processTextFile(Request $request)
     {
 
+        try {
+            $this->validate($request, [
+                'text_file' => 'required|file',
+            ]);
+
+        } catch (ValidationException $validationException) {
+            return response()
+                ->json(['errors' => $validationException->errors()]);
+        }
+
         $file   = $request->file('text_file');
         $result = $this->replaceTextService
             ->processFile($file->openFile())
@@ -37,9 +48,9 @@ class UploadController extends Controller
             'data' => [
                 'type'       => 'text',
                 'attributes' => [
-                    'word' => $this->replaceTextService->getWord(),
+                    'word'  => $this->replaceTextService->getWord(),
                     'count' => $this->replaceTextService->getWordCount(),
-                    'text' => $result,
+                    'text'  => $result,
                 ],
             ],
         ]);
