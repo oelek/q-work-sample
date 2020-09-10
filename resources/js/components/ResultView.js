@@ -6,8 +6,7 @@ const ResultView = ({word, text, count}) => {
             <div className={'content-header'}>
                 {word && <div className={'content-header-inner'}>{word} x {count}</div>}
             </div>
-            <div content={'content-main'}>
-                {text ? text : ''}
+            <div className={'content-main'} dangerouslySetInnerHTML={{__html: text || ''}}>
             </div>
         </div>
     )
