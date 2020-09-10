@@ -20,17 +20,19 @@ const Container = () => {
 
     const handleSubmit = (files) => {
         const file = files[0] || null
-        state.file = file
-        state.loading = true
-        setState({...state})
+        if (file !== null) {
+            state.file = file
+            state.loading = true
+            setState({...state})
 
-        uploadFile(file).then(res => {
-            if (res.status < 299) {
-                state.result = res.data.data.attributes
-                state.loading = false
-                setState({...state})
-            }
-        })
+            uploadFile(file).then(res => {
+                if (res.status < 299) {
+                    state.result = res.data.data.attributes
+                    state.loading = false
+                    setState({...state})
+                }
+            })
+        }
     }
 
     return (
