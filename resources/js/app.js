@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FileUpload from './components/FileUpload'
+import App from './components/App'
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -18,7 +18,7 @@ require('./bootstrap');
 
 ReactDOM.render(
     <React.StrictMode>
-        <FileUpload/>
+        <App/>
     </React.StrictMode>,
     document.getElementById('js-app-root')
 );
