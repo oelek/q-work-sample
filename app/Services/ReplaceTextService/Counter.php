@@ -32,12 +32,12 @@ class Counter
 
     public function getMaxCountName(): string
     {
-        return $this->maxName;
+        return $this->maxName ?? '';
     }
 
     public function increase(string $name, int $count): void
     {
-        if (! isset($this->counted[$name])) {
+        if ( ! isset($this->counted[$name])) {
             $this->counted[$name] = 0;
         }
 
