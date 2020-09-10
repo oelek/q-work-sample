@@ -9,14 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-
-                </div>
-                <div id="js-app-root"></div>
-            </div>
-        </div>
+        <div id="js-app-root" class="main"></div>
         <script src="{{ asset('js/app.js')}}"></script>
     </body>
 </html>
