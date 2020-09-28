@@ -13,9 +13,9 @@ class Word
     public static function count(string $str, string $haystack): int
     {
         $matches = [];
-        preg_match('/\b' . $str . '\b/', $haystack, $matches);
+        preg_match_all('/\b' . $str . '\b/', $haystack, $matches);
 
-        return count($matches);
+        return count($matches[0]);
     }
 
     public static function explode(string $chunk): array
